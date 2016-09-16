@@ -1,0 +1,77 @@
+[储藏]
+我想把当前编写的先暂存起来 = git add . git stash
+查看现在现有的储藏 = git stash list
+移除指定的储藏,根据 这个名字咯 = git stash drop name
+我想使用当前这个暂存 = git stash apply 
+想把暂存的弄出个新的分支出来 = git stash branch testchanges 如果成功就会丢弃暂存
+我想修改下最近一次的提交备注 = git commit --amend
+
+[远程仓库]
+我想跟远程的仓库绑定 = git remote add [shortname][url]
+
+[帮助命令]
+比如吧，我想看config相关的帮助 = git help config
+
+[远程Git]
+我现在这里有一个git项目，想把它弄成一个纯仓库 = git clone --bare old_git_project_model my_project.git
+重新生成 密钥 = ssh-keygen
+
+[标签]
+我想查看下所有的标签 = git tag
+我想查看有关于v1.2开头的标签列表 = git tag -l 'v1.2*'
+给当前的打标签为taga，添加备注 = git tag -a taga -m "备注啦 "
+直接打标签没有备注怎么弄？ = git tag -a taga
+我已经提交很多版本了，但是呢，想给之前的前好几个打标签，怎么弄？ = git tag -a v1.2 [对象检验码前几位]
+把本地的标签分享到服务器上 = git push origin taga
+
+[分支管理]
+查看本地的分支列表为？ = git branch
+查看远程 分支列表是？ = git branch -r
+查看所有的分支列表，包含本地和远程 的 = git branch -a
+我现在想拿当前的分支 创建一个分支  = git branch newbranch
+切换分支到b = git checkout branchb
+创建刚切换到分支a = git checkout -b newbrancha
+我现在已经修改了分支hotfix想把它合并到master,怎么弄？ = git checkout master ,git merge hotfix
+一般merge分支是会把之前的分支提交的信息给去掉的，现在我不想去掉添加哪个参数呀？ = git checkout master,git merge hotfix -no-ff
+merge添加注释 怎么弄？ = git merge hotfox -no-ff -m "备注"
+我想删除分支 b怎么弄？ = git branch -d branchb
+如果遇到git merge怎么解决冲突呀? = git mergetool
+把本地分支newbranch 推送到远程分支  = git push origin newbranch
+如果是第一次提交推送，最好添加啥? = git push origin newbranch -u
+从远程分支上弄下serverfix的分支 怎么弄？ = git checkout -b serverfix origin/serverfix
+如果有分支b现在想重新命名为a怎么破？ = git branch -m branchb brancha
+衍合怎么弄？我想把server衍合到master = git checkout exprement ;git rebase master
+想把当前server分支合并到当前分支 怎么弄？ = git checkout master/ git merge server
+想查看远程 的提交log = git log remotes/origin/master
+ = 
+
+[基础知识]
+使用git 当前目录初始化 = git init
+克隆仓库git://.. = git clone git://...
+查看当前仓库的状态 = git status
+git有一个忽略列表，可以把相关文件名放里面 = .gitignore
+显示还没有暂存起来的改动 = git diff
+git 提交修改 = git commit 
+git直接提交 不用添加到暂存 = git commit -a
+添加备注 = git commit -m "备注信息"
+添加文件到暂存 = git add .
+git 想移除这个文件 = git rm file
+git想从暂存区里删除这个文件 = git rm file -f
+表示从仓库里删除但扔想在工作目录里 = git rm file --cached
+查看所有的变更记录 = git log
+查看比如最近5条记录 = git log -5
+git log想单行显示怎么弄 = git log --pretty=oneline
+git log图形化显示 = git log --pretty=format:"%h %s" --graph
+如果我之前已经提交了，现在想把之前的提交备注给修改了、怎么弄？ = git commit --amend
+我修改了些文件，但是呢，发现改错了，想取消对它的保存 = git reset HEAD file
+想丢弃对文件的修改，并且呢这个文件已经在仓库里 = git checkout -- filename 
+如果我这一次提交了，但发现 提交错了，想撤销怎么弄、 = git revert HEAD 
+如果提交的记录很多，我怎么找到那个提交记录呀 = git reflog
+我现在找到了那个提交记录id = git revert commit-id
+
+[配置用户信息]
+设置你的用户名称 = git config --blobal user.name "liujian"
+设置email全局的 = git config --global user.email liujian@100.me
+设置全局的合并冲突使用vimdiff = git config --global merge.tool vimdiff
+查看全局的配置 = git config --list
+
